@@ -105,7 +105,7 @@
 		plt.show()
 
 
-## "Observable trends based on the data
+## Observable trends based on the data
 - Rural areas have least number of drivers while urban areas have the highest with respesctive higher fare rates
 - It follows from the first observation that urban areas have highest num of drivers. South Bryanstad and Davidstown with the highest total drivers.
 - Port Johnstad have the max number of rides/city however, it isn't the city with highest num of drivers.

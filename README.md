@@ -1,23 +1,23 @@
 # UCB_Pyber
 ## Pyber Ride Sharing Data Analysis
     #Dependencies
-		import matplotlib.pyplot as plt
-    import plotly.plotly as py
-    import csv
-    import pandas as pd
-    import numpy as np
+	    import matplotlib.pyplot as plt
+	    import plotly.plotly as py
+	    import csv
+	    import pandas as pd
+	    import numpy as np
 
-    bubbles_mpl = plt.figure()
-		#Ride data
-    rdf = pd.read_csv('ride_data.csv', delimiter=',', encoding="utf-8-sig")
-		#City data
-    cdf = pd.read_csv('city_data.csv', delimiter=',', encoding="utf-8-sig")
+	    bubbles_mpl = plt.figure()
+			#Ride data
+	    rdf = pd.read_csv('ride_data.csv', delimiter=',', encoding="utf-8-sig")
+			#City data
+	    cdf = pd.read_csv('city_data.csv', delimiter=',', encoding="utf-8-sig")
 		
-		print ("==================================")
-		print ("   Analysis of Pyber Dataset","\n", "==================================")
-		#Data frame with city and rides data merged
-		crdf = pd.merge(rdf,cdf,on="city", how="left")
-		crdf.head()
+	    print ("==================================")
+	    print ("   Analysis of Pyber Dataset","\n", "==================================")
+	    #Data frame with city and rides data merged
+	    crdf = pd.merge(rdf,cdf,on="city", how="left")
+	   crdf.head()
 		
 ## Analysis of rides in city data
 		#Average Fare ($) Per City
@@ -77,36 +77,35 @@
 		plt.show()
 
 ##  % of Total Rides by City Type
-tot_rides  = faresByType.count()['ride_id']
-labels = tot_rides.index
+		tot_rides  = faresByType.count()['ride_id']
+		labels = tot_rides.index
 
-colors = [city_color[n] for n in labels]
-explode = [0 , 0, .3]
-plt.pie(tot_rides, startangle = 90, colors = colors, labels = labels, autopct = "%1.1f%%", explode = explode, 
-        shadow = True, wedgeprops = {'linewidth': .5, 'edgecolor': 'black'})
+		colors = [city_color[n] for n in labels]
+		explode = [0 , 0, .3]
+		plt.pie(tot_rides, startangle = 90, colors = colors, labels = labels, autopct = "%1.1f%%", explode = explode, 
+			shadow = True, wedgeprops = {'linewidth': .5, 'edgecolor': 'black'})
 
-#Pie chart display
-plt.title('% of Total Rides by City Type')
-plt.axis('equal')
-plt.show()
+		#Pie chart display
+		plt.title('% of Total Rides by City Type')
+		plt.axis('equal')
+		plt.show()
 
 ##  % of Total Drivers by City Type
-tot_drivers = cdf.groupby('type').sum()['driver_count']
-labels = tot_drivers.index
+		tot_drivers = cdf.groupby('type').sum()['driver_count']
+		labels = tot_drivers.index
 
-colors = [city_color[n] for n in labels]
-explode = [0 , 0, .3]
-plt.pie(tot_drivers, startangle = 90, colors = colors, labels = labels, autopct = "%1.1f%%", 
-        shadow = True, wedgeprops = {'linewidth': .5, 'edgecolor': 'black'})
+		colors = [city_color[n] for n in labels]
+		explode = [0 , 0, .3]
+		plt.pie(tot_drivers, startangle = 90, colors = colors, labels = labels, autopct = "%1.1f%%", 
+			shadow = True, wedgeprops = {'linewidth': .5, 'edgecolor': 'black'})
 
-#Pie chart display
-plt.title('% of Total Drivers by City Type')
-plt.axis('equal')
-plt.show()
+		#Pie chart display
+		plt.title('% of Total Drivers by City Type')
+		plt.axis('equal')
+		plt.show()
 
 
-## "Observable trends based on the data")
-## ======================================
-	. Rural areas have least number of drivers while urban areas have the highest with respesctive higher fare rates
-	. It follows from the first observation that urban areas have highest num of drivers. South Bryanstad and Davidstown with the highest total drivers.
-  . Port Johnstad have the max number of rides/city however, it isn't the city with highest num of drivers.
+## "Observable trends based on the data
+- Rural areas have least number of drivers while urban areas have the highest with respesctive higher fare rates
+- It follows from the first observation that urban areas have highest num of drivers. South Bryanstad and Davidstown with the highest total drivers.
+- Port Johnstad have the max number of rides/city however, it isn't the city with highest num of drivers.
